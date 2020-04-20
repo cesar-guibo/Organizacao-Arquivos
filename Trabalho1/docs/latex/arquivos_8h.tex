@@ -1,0 +1,237 @@
+\hypertarget{arquivos_8h}{}\doxysection{Referência do Arquivo include/arquivos.h}
+\label{arquivos_8h}\index{include/arquivos.h@{include/arquivos.h}}
+\doxysubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}}
+\item 
+struct \mbox{\hyperlink{structRegistrosConfig_1_1CampoConfig}{Registros\+Config\+::\+Campo\+Config}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerações}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} \{ \newline
+{\bfseries S\+T\+R\+E\+A\+M\+\_\+\+OK}, 
+{\bfseries E\+R\+R\+O\+\_\+\+L\+E\+I\+T\+U\+RA}, 
+{\bfseries E\+R\+R\+O\+\_\+\+E\+S\+C\+R\+I\+TA}, 
+{\bfseries E\+O\+F\+\_\+\+A\+L\+C\+A\+N\+C\+A\+DO}, 
+\newline
+{\bfseries S\+T\+R\+E\+A\+M\+\_\+\+N\+U\+LA}
+ \}
+\item 
+enum \mbox{\hyperlink{arquivos_8h_a5fd66dd2f7ed65c0bffacc30f1ab842e}{Tipo\+Dado}} \{ \newline
+{\bfseries I\+NT}, 
+{\bfseries L\+O\+NG}, 
+{\bfseries L\+O\+N\+G\+\_\+\+L\+O\+NG}, 
+{\bfseries S\+H\+O\+RT}, 
+\newline
+{\bfseries U\+N\+S\+I\+G\+N\+ED}, 
+{\bfseries U\+N\+S\+I\+G\+N\+E\+D\+\_\+\+L\+O\+NG}, 
+{\bfseries U\+N\+S\+I\+G\+N\+E\+D\+\_\+\+L\+O\+N\+G\+\_\+\+L\+O\+NG}, 
+{\bfseries U\+N\+S\+I\+G\+N\+E\+D\+\_\+\+S\+H\+O\+RT}, 
+\newline
+{\bfseries C\+H\+AR}, 
+{\bfseries U\+N\+S\+I\+G\+N\+E\+D\+\_\+\+C\+H\+AR}, 
+{\bfseries S\+I\+G\+N\+E\+D\+\_\+\+C\+H\+AR}, 
+{\bfseries F\+L\+O\+AT}, 
+\newline
+{\bfseries D\+O\+U\+B\+LE}, 
+{\bfseries L\+O\+N\+G\+\_\+\+D\+O\+U\+B\+LE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$ \mbox{\hyperlink{arquivos_8h_a972df13e22c5b6bfe6227e52a24ba357}{cabecalho\+Alloc}} (void)
+\item 
+void \mbox{\hyperlink{arquivos_8h_aeae882d36db88ce9889f1a76210ef523}{cabecalho\+Free}} (struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$cabecalho)
+\item 
+\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} \mbox{\hyperlink{arquivos_8h_a793454a23e215d0e4200a5bf29b735a6}{carregar\+Cabecalho}} (struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$cabecalho, F\+I\+LE $\ast$stream)
+\item 
+\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} \mbox{\hyperlink{arquivos_8h_ab1d992831ef82df4536b3cbd3fed0c6e}{formatar\+Arquivo}} (F\+I\+LE $\ast$stream\+Origem, F\+I\+LE $\ast$stream\+Destino, struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}} $\ast$config\+Origem, struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}} $\ast$config\+Destino)
+\item 
+\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} \mbox{\hyperlink{arquivos_8h_a52e11d5454291edd8f85b6ae8972c045}{imprimir\+Todos\+Dados\+Arquivo}} (F\+I\+LE $\ast$stream, struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$cabecalho, struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}} $\ast$reg\+Config, void($\ast$imprimir)(void $\ast$))
+\item 
+void \mbox{\hyperlink{arquivos_8h_a7f3e6d2d1dce3cfa8e45ce2dddc985cc}{log\+Erro\+Operacao\+Arquivo}} (\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} status)
+\item 
+void \mbox{\hyperlink{arquivos_8h_a992863999b1ea05b6fdd20b6d83c6d4c}{log\+Erro\+Operacao\+Arquivo}} (\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} status, F\+I\+LE $\ast$error\+Stream)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+const char \mbox{\hyperlink{arquivos_8h_aa67b1efbbfbddfa5aaad5990872ead92}{L\+I\+XO}} = \textquotesingle{}\$\textquotesingle{}
+\item 
+const int \mbox{\hyperlink{arquivos_8h_ac9902cf212b0638d064fbc68cd9b84c3}{C\+A\+B\+E\+C\+A\+L\+H\+O\+\_\+\+T\+AM}} = 128
+\item 
+const int \mbox{\hyperlink{arquivos_8h_a01183e1242a13f2002c34f7bfbe07018}{T\+A\+M\+\_\+\+V\+A\+R\+I\+A\+V\+EL}} = -\/1
+\item 
+const int \mbox{\hyperlink{arquivos_8h_a9d55675b87ebbbb4f36364d66e73024c}{T\+A\+G\+\_\+\+T\+AM}} = 15
+\item 
+const char \mbox{\hyperlink{arquivos_8h_abf71bb88321bff395fe56c1b358c8157}{N\+E\+N\+H\+U\+M\+\_\+\+D\+E\+L\+I\+M\+I\+T\+A\+D\+OR}} = \textquotesingle{}!\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Arquivo de cabecalho que define enums, structs e funcoes relevantes para o desenvolvimento do trabalho 1 relaizado para a disciplina de Organizacao de Arquivos. 
+
+\doxysubsection{Enumerações}
+\mbox{\Hypertarget{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}\label{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}} 
+\index{arquivos.h@{arquivos.h}!StatusStream@{StatusStream}}
+\index{StatusStream@{StatusStream}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{StatusStream}{StatusStream}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}}}
+
+Representa se ocorreu algum erro em operacoes que envolvem streams. \mbox{\Hypertarget{arquivos_8h_a5fd66dd2f7ed65c0bffacc30f1ab842e}\label{arquivos_8h_a5fd66dd2f7ed65c0bffacc30f1ab842e}} 
+\index{arquivos.h@{arquivos.h}!TipoDado@{TipoDado}}
+\index{TipoDado@{TipoDado}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{TipoDado}{TipoDado}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{arquivos_8h_a5fd66dd2f7ed65c0bffacc30f1ab842e}{Tipo\+Dado}}}
+
+Representa os tipos de dados que um campo pode conter para que possa ser utilizado pelas funcoes definidas nesse .h. 
+
+\doxysubsection{Funções}
+\mbox{\Hypertarget{arquivos_8h_a972df13e22c5b6bfe6227e52a24ba357}\label{arquivos_8h_a972df13e22c5b6bfe6227e52a24ba357}} 
+\index{arquivos.h@{arquivos.h}!cabecalhoAlloc@{cabecalhoAlloc}}
+\index{cabecalhoAlloc@{cabecalhoAlloc}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{cabecalhoAlloc()}{cabecalhoAlloc()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structCabecalho}{Cabecalho}}$\ast$ cabecalho\+Alloc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Alloca memoria para um cabecalho. \begin{DoxyReturn}{Retorna}
+endereco onde foi alocada a struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8h_aeae882d36db88ce9889f1a76210ef523}\label{arquivos_8h_aeae882d36db88ce9889f1a76210ef523}} 
+\index{arquivos.h@{arquivos.h}!cabecalhoFree@{cabecalhoFree}}
+\index{cabecalhoFree@{cabecalhoFree}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{cabecalhoFree()}{cabecalhoFree()}}
+{\footnotesize\ttfamily void cabecalho\+Free (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$}]{cabecalho }\end{DoxyParamCaption})}
+
+Libera da memoria um cabecalho 
+\begin{DoxyParams}{Parâmetros}
+{\em cabecalho} & cabecalho que sera liberado \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{arquivos_8h_a793454a23e215d0e4200a5bf29b735a6}\label{arquivos_8h_a793454a23e215d0e4200a5bf29b735a6}} 
+\index{arquivos.h@{arquivos.h}!carregarCabecalho@{carregarCabecalho}}
+\index{carregarCabecalho@{carregarCabecalho}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{carregarCabecalho()}{carregarCabecalho()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} carregar\+Cabecalho (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$}]{cabecalho,  }\item[{F\+I\+LE $\ast$}]{stream }\end{DoxyParamCaption})}
+
+Carrega um cabecalho armazenado em um arquivo para poder utilizar as informacoes nele armazenado em tempo de acesso da memoria R\+AM.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em cabecalho} & cabecalho que recebera o cabecalho carregado de um arquivo. \\
+\hline
+{\em stream} & stream que se comunica com o arquivo que tera o cabecalho carregado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+o status da stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8h_ab1d992831ef82df4536b3cbd3fed0c6e}\label{arquivos_8h_ab1d992831ef82df4536b3cbd3fed0c6e}} 
+\index{arquivos.h@{arquivos.h}!formatarArquivo@{formatarArquivo}}
+\index{formatarArquivo@{formatarArquivo}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{formatarArquivo()}{formatarArquivo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} formatar\+Arquivo (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{stream\+Origem,  }\item[{F\+I\+LE $\ast$}]{stream\+Destino,  }\item[{struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}} $\ast$}]{config\+Origem,  }\item[{struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}} $\ast$}]{config\+Destino }\end{DoxyParamCaption})}
+
+Formata um arquivo origem em um arquivo destino.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em stream\+Origem} & stream que se comunica com o arquivo de origem. \\
+\hline
+{\em stream\+Destino} & stream que se comunica com o arquivo de destino. \\
+\hline
+{\em config\+Origem} & configuracoes do registro do arquivo de origem. \\
+\hline
+{\em config\+Destino} & configuracoes de formatacao para o arquivo destino\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+status das streams 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8h_a52e11d5454291edd8f85b6ae8972c045}\label{arquivos_8h_a52e11d5454291edd8f85b6ae8972c045}} 
+\index{arquivos.h@{arquivos.h}!imprimirTodosDadosArquivo@{imprimirTodosDadosArquivo}}
+\index{imprimirTodosDadosArquivo@{imprimirTodosDadosArquivo}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{imprimirTodosDadosArquivo()}{imprimirTodosDadosArquivo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}} imprimir\+Todos\+Dados\+Arquivo (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{stream,  }\item[{struct \mbox{\hyperlink{structCabecalho}{Cabecalho}} $\ast$}]{cabecalho,  }\item[{struct \mbox{\hyperlink{structRegistrosConfig}{Registros\+Config}} $\ast$}]{reg\+Config,  }\item[{void($\ast$)(void $\ast$)}]{imprimir }\end{DoxyParamCaption})}
+
+Recupera dados de um registro de um arquivo
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em stream} & stream que se comunica com o arquivo que deve ser imprimido\\
+\hline
+{\em cabecalho} & cabecalho do arquivo carregado na R\+AM \\
+\hline
+{\em reg\+Config} & configuracoes dos registros armazenados no arquivo \\
+\hline
+{\em imprimir} & funcao que imprime os dados do registro\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+status da stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arquivos_8h_a7f3e6d2d1dce3cfa8e45ce2dddc985cc}\label{arquivos_8h_a7f3e6d2d1dce3cfa8e45ce2dddc985cc}} 
+\index{arquivos.h@{arquivos.h}!logErroOperacaoArquivo@{logErroOperacaoArquivo}}
+\index{logErroOperacaoArquivo@{logErroOperacaoArquivo}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{logErroOperacaoArquivo()}{logErroOperacaoArquivo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void log\+Erro\+Operacao\+Arquivo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}}}]{status }\end{DoxyParamCaption})}
+
+Imprime uma mensagem de erro para a stream selecionada. Se E\+R\+R\+O\+\_\+\+L\+O\+G\+\_\+\+S\+T\+R\+E\+AM foi definida, a error\+Stream nao preciase ser passada como parametro.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em status} & status da stream que se comunica com um arquivo \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{arquivos_8h_a992863999b1ea05b6fdd20b6d83c6d4c}\label{arquivos_8h_a992863999b1ea05b6fdd20b6d83c6d4c}} 
+\index{arquivos.h@{arquivos.h}!logErroOperacaoArquivo@{logErroOperacaoArquivo}}
+\index{logErroOperacaoArquivo@{logErroOperacaoArquivo}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{logErroOperacaoArquivo()}{logErroOperacaoArquivo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void log\+Erro\+Operacao\+Arquivo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arquivos_8h_a5fb461d5082b54d6f1bc83c9dd0c6303}{Status\+Stream}}}]{status,  }\item[{F\+I\+LE $\ast$}]{error\+Stream }\end{DoxyParamCaption})}
+
+Imprime uma mensagem de erro para a stream selecionada. Se E\+R\+R\+O\+\_\+\+L\+O\+G\+\_\+\+S\+T\+R\+E\+AM nao foi definida, a error\+Stream preciase ser passada como parametro.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em status} & status da stream que se comunica com um arquivo \\
+\hline
+{\em error\+Stream} & stream aonde deve ser impressa a mensagem de erro \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variáveis}
+\mbox{\Hypertarget{arquivos_8h_ac9902cf212b0638d064fbc68cd9b84c3}\label{arquivos_8h_ac9902cf212b0638d064fbc68cd9b84c3}} 
+\index{arquivos.h@{arquivos.h}!CABECALHO\_TAM@{CABECALHO\_TAM}}
+\index{CABECALHO\_TAM@{CABECALHO\_TAM}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{CABECALHO\_TAM}{CABECALHO\_TAM}}
+{\footnotesize\ttfamily const int C\+A\+B\+E\+C\+A\+L\+H\+O\+\_\+\+T\+AM = 128}
+
+Constante que define o tamanho fixo dos cabecalhos. \mbox{\Hypertarget{arquivos_8h_aa67b1efbbfbddfa5aaad5990872ead92}\label{arquivos_8h_aa67b1efbbfbddfa5aaad5990872ead92}} 
+\index{arquivos.h@{arquivos.h}!LIXO@{LIXO}}
+\index{LIXO@{LIXO}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{LIXO}{LIXO}}
+{\footnotesize\ttfamily const char L\+I\+XO = \textquotesingle{}\$\textquotesingle{}}
+
+Constante que sinaliza que o dado deve ser tratado como lixo. \mbox{\Hypertarget{arquivos_8h_abf71bb88321bff395fe56c1b358c8157}\label{arquivos_8h_abf71bb88321bff395fe56c1b358c8157}} 
+\index{arquivos.h@{arquivos.h}!NENHUM\_DELIMITADOR@{NENHUM\_DELIMITADOR}}
+\index{NENHUM\_DELIMITADOR@{NENHUM\_DELIMITADOR}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{NENHUM\_DELIMITADOR}{NENHUM\_DELIMITADOR}}
+{\footnotesize\ttfamily const char N\+E\+N\+H\+U\+M\+\_\+\+D\+E\+L\+I\+M\+I\+T\+A\+D\+OR = \textquotesingle{}!\textquotesingle{}}
+
+Constante que define o caractere que ~\newline
+ determina que nenhum delimitador e utilizado. \mbox{\Hypertarget{arquivos_8h_a9d55675b87ebbbb4f36364d66e73024c}\label{arquivos_8h_a9d55675b87ebbbb4f36364d66e73024c}} 
+\index{arquivos.h@{arquivos.h}!TAG\_TAM@{TAG\_TAM}}
+\index{TAG\_TAM@{TAG\_TAM}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{TAG\_TAM}{TAG\_TAM}}
+{\footnotesize\ttfamily const int T\+A\+G\+\_\+\+T\+AM = 15}
+
+Constante que define o comprimento maximo das tags. \mbox{\Hypertarget{arquivos_8h_a01183e1242a13f2002c34f7bfbe07018}\label{arquivos_8h_a01183e1242a13f2002c34f7bfbe07018}} 
+\index{arquivos.h@{arquivos.h}!TAM\_VARIAVEL@{TAM\_VARIAVEL}}
+\index{TAM\_VARIAVEL@{TAM\_VARIAVEL}!arquivos.h@{arquivos.h}}
+\doxysubsubsection{\texorpdfstring{TAM\_VARIAVEL}{TAM\_VARIAVEL}}
+{\footnotesize\ttfamily const int T\+A\+M\+\_\+\+V\+A\+R\+I\+A\+V\+EL = -\/1}
+
+Constante que sinaliza que um campo ou um registro possui tamanho variavel. 

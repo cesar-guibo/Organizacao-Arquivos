@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho 1 de Organização de Arquivos: Código-Fonte de include/arquivos.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho 1 de Organização de Arquivos
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">arquivos.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="arquivos_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _ORG_ARQUIVOS_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _ORG_ARQUIVOS_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="arquivos_8h.html#aa67b1efbbfbddfa5aaad5990872ead92">   14</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="arquivos_8h.html#aa67b1efbbfbddfa5aaad5990872ead92">LIXO</a> = <span class="charliteral">&#39;$&#39;</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="arquivos_8h.html#ac9902cf212b0638d064fbc68cd9b84c3">   18</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="arquivos_8h.html#ac9902cf212b0638d064fbc68cd9b84c3">CABECALHO_TAM</a> = 128;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="arquivos_8h.html#a01183e1242a13f2002c34f7bfbe07018">   22</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="arquivos_8h.html#a01183e1242a13f2002c34f7bfbe07018">TAM_VARIAVEL</a> = -1;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="arquivos_8h.html#a9d55675b87ebbbb4f36364d66e73024c">   26</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="arquivos_8h.html#a9d55675b87ebbbb4f36364d66e73024c">TAG_TAM</a> = 15;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="arquivos_8h.html#abf71bb88321bff395fe56c1b358c8157">   31</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="arquivos_8h.html#abf71bb88321bff395fe56c1b358c8157">NENHUM_DELIMITADOR</a> = <span class="charliteral">&#39;!&#39;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    STREAM_OK, ERRO_LEITURA, ERRO_ESCRITA, EOF_ALCANCADO, STREAM_NULA</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <a class="code" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="arquivos_8h.html#a5fd66dd2f7ed65c0bffacc30f1ab842e">   41</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    INT, LONG, LONG_LONG, SHORT, UNSIGNED, UNSIGNED_LONG,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    UNSIGNED_LONG_LONG, UNSIGNED_SHORT, CHAR, UNSIGNED_CHAR,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    SIGNED_CHAR, FLOAT, DOUBLE, LONG_DOUBLE</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <a class="code" href="arquivos_8h.html#a5fd66dd2f7ed65c0bffacc30f1ab842e">TipoDado</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/* @copydoc Cabecalho */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">struct </span><a class="code" href="structCabecalho.html">Cabecalho</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//te amo muitooooooooooooo vida</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structRegistrosConfig.html">   61</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structRegistrosConfig.html">RegistrosConfig</a> {</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structRegistrosConfig.html#aa5b7cfa43374812c0fec30e0b4db91b4">   65</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structRegistrosConfig.html#aa5b7cfa43374812c0fec30e0b4db91b4">tamanhoFixo</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structRegistrosConfig_1_1CampoConfig.html">   70</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structRegistrosConfig_1_1CampoConfig.html">CampoConfig</a> {</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="structRegistrosConfig_1_1CampoConfig.html#a29391203bb781cfe4d42f4d10656d9ec">   74</a></span>&#160;        <a class="code" href="arquivos_8h.html#a5fd66dd2f7ed65c0bffacc30f1ab842e">TipoDado</a> <a class="code" href="structRegistrosConfig_1_1CampoConfig.html#a29391203bb781cfe4d42f4d10656d9ec">tipoDado</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structRegistrosConfig_1_1CampoConfig.html#afcdc175705f107604baf165eb9375512">   78</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="structRegistrosConfig_1_1CampoConfig.html#afcdc175705f107604baf165eb9375512">tag</a>[<a class="code" href="arquivos_8h.html#a9d55675b87ebbbb4f36364d66e73024c">TAG_TAM</a>]; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structRegistrosConfig_1_1CampoConfig.html#a593111262eb07178902f5f06ffbe0cb4">   83</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structRegistrosConfig_1_1CampoConfig.html#a593111262eb07178902f5f06ffbe0cb4">tamanhoFixo</a>;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structRegistrosConfig_1_1CampoConfig.html#ac60120a54f8387a7dfbf448eb13df695">   90</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structRegistrosConfig_1_1CampoConfig.html#ac60120a54f8387a7dfbf448eb13df695">delimitadorTamanho</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="structRegistrosConfig_1_1CampoConfig.html#a5540e8cd5b78c0a083f86752cb63570a">   97</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="structRegistrosConfig_1_1CampoConfig.html#a5540e8cd5b78c0a083f86752cb63570a">delimitadorCampo</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    };</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#ifdef NUMERO_CAMPOS </span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="structRegistrosConfig.html#ab46c7d546af27a11f0b168b7eb6a4514">  104</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structRegistrosConfig_1_1CampoConfig.html">CampoConfig</a> <a class="code" href="structRegistrosConfig.html#ab46c7d546af27a11f0b168b7eb6a4514">camposConfig</a>[NUMERO_CAMPOS];</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="structRegistrosConfig.html#af48b15372ebd751467cdac8d9159deee">  110</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structRegistrosConfig_1_1CampoConfig.html">CampoConfig</a> *<a class="code" href="structRegistrosConfig.html#af48b15372ebd751467cdac8d9159deee">camposConfig</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="structRegistrosConfig.html#a753b76ee0a2dc027b9597db7fee89753">  115</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structRegistrosConfig.html#a753b76ee0a2dc027b9597db7fee89753">numeroCampos</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">struct </span><a class="code" href="structCabecalho.html">Cabecalho</a> *<a class="code" href="arquivos_8h.html#a972df13e22c5b6bfe6227e52a24ba357">cabecalhoAlloc</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keywordtype">void</span> <a class="code" href="arquivos_8h.html#aeae882d36db88ce9889f1a76210ef523">cabecalhoFree</a>(<span class="keyword">struct</span> <a class="code" href="structCabecalho.html">Cabecalho</a> *cabecalho);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<a class="code" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a> <a class="code" href="arquivos_8h.html#a793454a23e215d0e4200a5bf29b735a6">carregarCabecalho</a>(<span class="keyword">struct</span> <a class="code" href="structCabecalho.html">Cabecalho</a> *cabecalho, FILE *stream);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<a class="code" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a> <a class="code" href="arquivos_8h.html#ab1d992831ef82df4536b3cbd3fed0c6e">formatarArquivo</a>(FILE *streamOrigem, FILE *streamDestino,</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                 <span class="keyword">struct</span> <a class="code" href="structRegistrosConfig.html">RegistrosConfig</a> *configOrigem,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                 <span class="keyword">struct</span> <a class="code" href="structRegistrosConfig.html">RegistrosConfig</a> *configDestino);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<a class="code" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a> <a class="code" href="arquivos_8h.html#a52e11d5454291edd8f85b6ae8972c045">imprimirTodosDadosArquivo</a>(FILE *stream,</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                      <span class="keyword">struct</span> <a class="code" href="structCabecalho.html">Cabecalho</a> *cabecalho,</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                      <span class="keyword">struct</span> <a class="code" href="structRegistrosConfig.html">RegistrosConfig</a> *regConfig,</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                      <span class="keywordtype">void</span> (*imprimir)(<span class="keywordtype">void</span> *));</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#ifdef ERRO_LOG_STREAM</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keywordtype">void</span> <a class="code" href="arquivos_8h.html#a7f3e6d2d1dce3cfa8e45ce2dddc985cc">logErroOperacaoArquivo</a>(<a class="code" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a> status);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> <a class="code" href="arquivos_8h.html#a7f3e6d2d1dce3cfa8e45ce2dddc985cc">logErroOperacaoArquivo</a>(<a class="code" href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a> status, FILE *errorStream);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aarquivos_8h_html_ac9902cf212b0638d064fbc68cd9b84c3"><div class="ttname"><a href="arquivos_8h.html#ac9902cf212b0638d064fbc68cd9b84c3">CABECALHO_TAM</a></div><div class="ttdeci">const int CABECALHO_TAM</div><div class="ttdef"><b>Definition:</b> arquivos.h:18</div></div>
+<div class="ttc" id="astructRegistrosConfig_1_1CampoConfig_html_a29391203bb781cfe4d42f4d10656d9ec"><div class="ttname"><a href="structRegistrosConfig_1_1CampoConfig.html#a29391203bb781cfe4d42f4d10656d9ec">RegistrosConfig::CampoConfig::tipoDado</a></div><div class="ttdeci">TipoDado tipoDado</div><div class="ttdef"><b>Definition:</b> arquivos.h:74</div></div>
+<div class="ttc" id="aarquivos_8h_html_a52e11d5454291edd8f85b6ae8972c045"><div class="ttname"><a href="arquivos_8h.html#a52e11d5454291edd8f85b6ae8972c045">imprimirTodosDadosArquivo</a></div><div class="ttdeci">StatusStream imprimirTodosDadosArquivo(FILE *stream, struct Cabecalho *cabecalho, struct RegistrosConfig *regConfig, void(*imprimir)(void *))</div></div>
+<div class="ttc" id="astructRegistrosConfig_1_1CampoConfig_html_ac60120a54f8387a7dfbf448eb13df695"><div class="ttname"><a href="structRegistrosConfig_1_1CampoConfig.html#ac60120a54f8387a7dfbf448eb13df695">RegistrosConfig::CampoConfig::delimitadorTamanho</a></div><div class="ttdeci">bool delimitadorTamanho</div><div class="ttdef"><b>Definition:</b> arquivos.h:90</div></div>
+<div class="ttc" id="astructCabecalho_html"><div class="ttname"><a href="structCabecalho.html">Cabecalho</a></div></div>
+<div class="ttc" id="aarquivos_8h_html_a5fd66dd2f7ed65c0bffacc30f1ab842e"><div class="ttname"><a href="arquivos_8h.html#a5fd66dd2f7ed65c0bffacc30f1ab842e">TipoDado</a></div><div class="ttdeci">TipoDado</div><div class="ttdef"><b>Definition:</b> arquivos.h:41</div></div>
+<div class="ttc" id="aarquivos_8h_html_a9d55675b87ebbbb4f36364d66e73024c"><div class="ttname"><a href="arquivos_8h.html#a9d55675b87ebbbb4f36364d66e73024c">TAG_TAM</a></div><div class="ttdeci">const int TAG_TAM</div><div class="ttdef"><b>Definition:</b> arquivos.h:26</div></div>
+<div class="ttc" id="aarquivos_8h_html_aa67b1efbbfbddfa5aaad5990872ead92"><div class="ttname"><a href="arquivos_8h.html#aa67b1efbbfbddfa5aaad5990872ead92">LIXO</a></div><div class="ttdeci">const char LIXO</div><div class="ttdef"><b>Definition:</b> arquivos.h:14</div></div>
+<div class="ttc" id="aarquivos_8h_html_a972df13e22c5b6bfe6227e52a24ba357"><div class="ttname"><a href="arquivos_8h.html#a972df13e22c5b6bfe6227e52a24ba357">cabecalhoAlloc</a></div><div class="ttdeci">struct Cabecalho * cabecalhoAlloc(void)</div></div>
+<div class="ttc" id="astructRegistrosConfig_1_1CampoConfig_html_a593111262eb07178902f5f06ffbe0cb4"><div class="ttname"><a href="structRegistrosConfig_1_1CampoConfig.html#a593111262eb07178902f5f06ffbe0cb4">RegistrosConfig::CampoConfig::tamanhoFixo</a></div><div class="ttdeci">int tamanhoFixo</div><div class="ttdef"><b>Definition:</b> arquivos.h:83</div></div>
+<div class="ttc" id="aarquivos_8h_html_ab1d992831ef82df4536b3cbd3fed0c6e"><div class="ttname"><a href="arquivos_8h.html#ab1d992831ef82df4536b3cbd3fed0c6e">formatarArquivo</a></div><div class="ttdeci">StatusStream formatarArquivo(FILE *streamOrigem, FILE *streamDestino, struct RegistrosConfig *configOrigem, struct RegistrosConfig *configDestino)</div></div>
+<div class="ttc" id="astructRegistrosConfig_html_a753b76ee0a2dc027b9597db7fee89753"><div class="ttname"><a href="structRegistrosConfig.html#a753b76ee0a2dc027b9597db7fee89753">RegistrosConfig::numeroCampos</a></div><div class="ttdeci">int numeroCampos</div><div class="ttdef"><b>Definition:</b> arquivos.h:115</div></div>
+<div class="ttc" id="astructRegistrosConfig_html"><div class="ttname"><a href="structRegistrosConfig.html">RegistrosConfig</a></div><div class="ttdef"><b>Definition:</b> arquivos.h:61</div></div>
+<div class="ttc" id="astructRegistrosConfig_html_aa5b7cfa43374812c0fec30e0b4db91b4"><div class="ttname"><a href="structRegistrosConfig.html#aa5b7cfa43374812c0fec30e0b4db91b4">RegistrosConfig::tamanhoFixo</a></div><div class="ttdeci">int tamanhoFixo</div><div class="ttdef"><b>Definition:</b> arquivos.h:65</div></div>
+<div class="ttc" id="aarquivos_8h_html_aeae882d36db88ce9889f1a76210ef523"><div class="ttname"><a href="arquivos_8h.html#aeae882d36db88ce9889f1a76210ef523">cabecalhoFree</a></div><div class="ttdeci">void cabecalhoFree(struct Cabecalho *cabecalho)</div></div>
+<div class="ttc" id="aarquivos_8h_html_a7f3e6d2d1dce3cfa8e45ce2dddc985cc"><div class="ttname"><a href="arquivos_8h.html#a7f3e6d2d1dce3cfa8e45ce2dddc985cc">logErroOperacaoArquivo</a></div><div class="ttdeci">void logErroOperacaoArquivo(StatusStream status)</div></div>
+<div class="ttc" id="astructRegistrosConfig_1_1CampoConfig_html_a5540e8cd5b78c0a083f86752cb63570a"><div class="ttname"><a href="structRegistrosConfig_1_1CampoConfig.html#a5540e8cd5b78c0a083f86752cb63570a">RegistrosConfig::CampoConfig::delimitadorCampo</a></div><div class="ttdeci">char delimitadorCampo</div><div class="ttdef"><b>Definition:</b> arquivos.h:97</div></div>
+<div class="ttc" id="aarquivos_8h_html_a793454a23e215d0e4200a5bf29b735a6"><div class="ttname"><a href="arquivos_8h.html#a793454a23e215d0e4200a5bf29b735a6">carregarCabecalho</a></div><div class="ttdeci">StatusStream carregarCabecalho(struct Cabecalho *cabecalho, FILE *stream)</div></div>
+<div class="ttc" id="astructRegistrosConfig_html_af48b15372ebd751467cdac8d9159deee"><div class="ttname"><a href="structRegistrosConfig.html#af48b15372ebd751467cdac8d9159deee">RegistrosConfig::camposConfig</a></div><div class="ttdeci">struct CampoConfig * camposConfig</div><div class="ttdef"><b>Definition:</b> arquivos.h:110</div></div>
+<div class="ttc" id="astructRegistrosConfig_1_1CampoConfig_html_afcdc175705f107604baf165eb9375512"><div class="ttname"><a href="structRegistrosConfig_1_1CampoConfig.html#afcdc175705f107604baf165eb9375512">RegistrosConfig::CampoConfig::tag</a></div><div class="ttdeci">char tag[TAG_TAM]</div><div class="ttdef"><b>Definition:</b> arquivos.h:78</div></div>
+<div class="ttc" id="aarquivos_8h_html_a5fb461d5082b54d6f1bc83c9dd0c6303"><div class="ttname"><a href="arquivos_8h.html#a5fb461d5082b54d6f1bc83c9dd0c6303">StatusStream</a></div><div class="ttdeci">StatusStream</div><div class="ttdef"><b>Definition:</b> arquivos.h:35</div></div>
+<div class="ttc" id="astructRegistrosConfig_1_1CampoConfig_html"><div class="ttname"><a href="structRegistrosConfig_1_1CampoConfig.html">RegistrosConfig::CampoConfig</a></div><div class="ttdef"><b>Definition:</b> arquivos.h:70</div></div>
+<div class="ttc" id="astructRegistrosConfig_html_ab46c7d546af27a11f0b168b7eb6a4514"><div class="ttname"><a href="structRegistrosConfig.html#ab46c7d546af27a11f0b168b7eb6a4514">RegistrosConfig::camposConfig</a></div><div class="ttdeci">struct CampoConfig camposConfig[NUMERO_CAMPOS]</div><div class="ttdef"><b>Definition:</b> arquivos.h:104</div></div>
+<div class="ttc" id="aarquivos_8h_html_abf71bb88321bff395fe56c1b358c8157"><div class="ttname"><a href="arquivos_8h.html#abf71bb88321bff395fe56c1b358c8157">NENHUM_DELIMITADOR</a></div><div class="ttdeci">const char NENHUM_DELIMITADOR</div><div class="ttdef"><b>Definition:</b> arquivos.h:31</div></div>
+<div class="ttc" id="aarquivos_8h_html_a01183e1242a13f2002c34f7bfbe07018"><div class="ttname"><a href="arquivos_8h.html#a01183e1242a13f2002c34f7bfbe07018">TAM_VARIAVEL</a></div><div class="ttdeci">const int TAM_VARIAVEL</div><div class="ttdef"><b>Definition:</b> arquivos.h:22</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

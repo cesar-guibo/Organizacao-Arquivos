@@ -1,0 +1,57 @@
+\hypertarget{structRegistroConfig}{}\doxysection{Referência da Estrutura Registro\+Config}
+\label{structRegistroConfig}\index{RegistroConfig@{RegistroConfig}}
+
+
+{\ttfamily \#include $<$arquivos.\+h$>$}
+
+\doxysubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRegistroConfig_1_1CampoConfig}{Campo\+Config}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structRegistroConfig_a54ea0248e88e71ecc27566f3be429416}{tamanho}}
+\item 
+struct \mbox{\hyperlink{structRegistroConfig_1_1CampoConfig}{Campo\+Config}} \mbox{\hyperlink{structRegistroConfig_abf49dbc6c5962d77324262e6cc37e925}{campos\+Config}} \mbox{[}N\+U\+M\+E\+R\+O\+\_\+\+C\+A\+M\+P\+OS\mbox{]}
+\item 
+struct \mbox{\hyperlink{structRegistroConfig_1_1CampoConfig}{Campo\+Config}} $\ast$ \mbox{\hyperlink{structRegistroConfig_a50bb7ecab7e3251ba6a8eb4edbe58905}{campos\+Config}}
+\item 
+int \mbox{\hyperlink{structRegistroConfig_ae35222290a504c7d9d53a024fcc07fe4}{numero\+Campos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Struct que armazena como cada registro deve ser armazenado e interpretado 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structRegistroConfig_a50bb7ecab7e3251ba6a8eb4edbe58905}\label{structRegistroConfig_a50bb7ecab7e3251ba6a8eb4edbe58905}} 
+\index{RegistroConfig@{RegistroConfig}!camposConfig@{camposConfig}}
+\index{camposConfig@{camposConfig}!RegistroConfig@{RegistroConfig}}
+\doxysubsubsection{\texorpdfstring{camposConfig}{camposConfig}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structRegistroConfig_1_1CampoConfig}{Campo\+Config}}$\ast$ Registro\+Config\+::campos\+Config}
+
+Se N\+U\+M\+E\+R\+O\+\_\+\+C\+A\+M\+P\+OS nao foi definido, o vetor campos\+Config deve ser alocado dinamicamente \mbox{\Hypertarget{structRegistroConfig_abf49dbc6c5962d77324262e6cc37e925}\label{structRegistroConfig_abf49dbc6c5962d77324262e6cc37e925}} 
+\index{RegistroConfig@{RegistroConfig}!camposConfig@{camposConfig}}
+\index{camposConfig@{camposConfig}!RegistroConfig@{RegistroConfig}}
+\doxysubsubsection{\texorpdfstring{camposConfig}{camposConfig}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structRegistroConfig_1_1CampoConfig}{Campo\+Config}} Registro\+Config\+::campos\+Config\mbox{[}N\+U\+M\+E\+R\+O\+\_\+\+C\+A\+M\+P\+OS\mbox{]}}
+
+Se N\+U\+M\+E\+R\+O\+\_\+\+C\+A\+M\+P\+OS tiver sido definido, o vetor campos\+Config e alocado estaticamente \mbox{\Hypertarget{structRegistroConfig_ae35222290a504c7d9d53a024fcc07fe4}\label{structRegistroConfig_ae35222290a504c7d9d53a024fcc07fe4}} 
+\index{RegistroConfig@{RegistroConfig}!numeroCampos@{numeroCampos}}
+\index{numeroCampos@{numeroCampos}!RegistroConfig@{RegistroConfig}}
+\doxysubsubsection{\texorpdfstring{numeroCampos}{numeroCampos}}
+{\footnotesize\ttfamily int Registro\+Config\+::numero\+Campos}
+
+Variavel que armazena o numero de campos contidos no registro se N\+U\+M\+E\+R\+O\+\_\+\+C\+A\+M\+P\+OS nao foi definido \mbox{\Hypertarget{structRegistroConfig_a54ea0248e88e71ecc27566f3be429416}\label{structRegistroConfig_a54ea0248e88e71ecc27566f3be429416}} 
+\index{RegistroConfig@{RegistroConfig}!tamanho@{tamanho}}
+\index{tamanho@{tamanho}!RegistroConfig@{RegistroConfig}}
+\doxysubsubsection{\texorpdfstring{tamanho}{tamanho}}
+{\footnotesize\ttfamily int Registro\+Config\+::tamanho}
+
+Tamanho fixo do registro, se o tamanho for variavel, deve receber o valor T\+A\+M\+\_\+\+V\+A\+R\+I\+A\+V\+EL 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{arquivos_8h}{arquivos.\+h}}\end{DoxyCompactItemize}

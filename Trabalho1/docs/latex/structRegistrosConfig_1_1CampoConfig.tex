@@ -1,0 +1,60 @@
+\hypertarget{structRegistrosConfig_1_1CampoConfig}{}\doxysection{Referência da Estrutura Registros\+Config\+::Campo\+Config}
+\label{structRegistrosConfig_1_1CampoConfig}\index{RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}}
+
+
+{\ttfamily \#include \char`\"{}include/arquivos.\+h\char`\"{}}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arquivos_8h_a5fd66dd2f7ed65c0bffacc30f1ab842e}{Tipo\+Dado}} \mbox{\hyperlink{structRegistrosConfig_1_1CampoConfig_a29391203bb781cfe4d42f4d10656d9ec}{tipo\+Dado}}
+\item 
+char \mbox{\hyperlink{structRegistrosConfig_1_1CampoConfig_afcdc175705f107604baf165eb9375512}{tag}} \mbox{[}\mbox{\hyperlink{arquivos_8h_a9d55675b87ebbbb4f36364d66e73024c}{T\+A\+G\+\_\+\+T\+AM}}\mbox{]}
+\item 
+int \mbox{\hyperlink{structRegistrosConfig_1_1CampoConfig_a593111262eb07178902f5f06ffbe0cb4}{tamanho\+Fixo}}
+\item 
+bool \mbox{\hyperlink{structRegistrosConfig_1_1CampoConfig_ac60120a54f8387a7dfbf448eb13df695}{delimitador\+Tamanho}}
+\item 
+char \mbox{\hyperlink{structRegistrosConfig_1_1CampoConfig_a5540e8cd5b78c0a083f86752cb63570a}{delimitador\+Campo}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Armazena as configuracoes de como cada campo deve ser armazenado e interpretado. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structRegistrosConfig_1_1CampoConfig_a5540e8cd5b78c0a083f86752cb63570a}\label{structRegistrosConfig_1_1CampoConfig_a5540e8cd5b78c0a083f86752cb63570a}} 
+\index{RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}!delimitadorCampo@{delimitadorCampo}}
+\index{delimitadorCampo@{delimitadorCampo}!RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}}
+\doxysubsubsection{\texorpdfstring{delimitadorCampo}{delimitadorCampo}}
+{\footnotesize\ttfamily char Registros\+Config\+::\+Campo\+Config\+::delimitador\+Campo}
+
+Armazena que caractere e usado para sinalizar o fim de um campo de tamanho variavel. Se nao e utilizado um delimitador, deve receber N\+E\+N\+H\+U\+M\+\_\+\+D\+E\+L\+I\+M\+I\+T\+A\+D\+OR. \mbox{\Hypertarget{structRegistrosConfig_1_1CampoConfig_ac60120a54f8387a7dfbf448eb13df695}\label{structRegistrosConfig_1_1CampoConfig_ac60120a54f8387a7dfbf448eb13df695}} 
+\index{RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}!delimitadorTamanho@{delimitadorTamanho}}
+\index{delimitadorTamanho@{delimitadorTamanho}!RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}}
+\doxysubsubsection{\texorpdfstring{delimitadorTamanho}{delimitadorTamanho}}
+{\footnotesize\ttfamily bool Registros\+Config\+::\+Campo\+Config\+::delimitador\+Tamanho}
+
+Sinaliza se e utilizado um delimitador de tamanho que sempre precede o dado para informar o tamanho de um campo variavel. \mbox{\Hypertarget{structRegistrosConfig_1_1CampoConfig_afcdc175705f107604baf165eb9375512}\label{structRegistrosConfig_1_1CampoConfig_afcdc175705f107604baf165eb9375512}} 
+\index{RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}!tag@{tag}}
+\index{tag@{tag}!RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}}
+\doxysubsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily char Registros\+Config\+::\+Campo\+Config\+::tag\mbox{[}\mbox{\hyperlink{arquivos_8h_a9d55675b87ebbbb4f36364d66e73024c}{T\+A\+G\+\_\+\+T\+AM}}\mbox{]}}
+
+Armazena a tag que identifica o campo. \mbox{\Hypertarget{structRegistrosConfig_1_1CampoConfig_a593111262eb07178902f5f06ffbe0cb4}\label{structRegistrosConfig_1_1CampoConfig_a593111262eb07178902f5f06ffbe0cb4}} 
+\index{RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}!tamanhoFixo@{tamanhoFixo}}
+\index{tamanhoFixo@{tamanhoFixo}!RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}}
+\doxysubsubsection{\texorpdfstring{tamanhoFixo}{tamanhoFixo}}
+{\footnotesize\ttfamily int Registros\+Config\+::\+Campo\+Config\+::tamanho\+Fixo}
+
+Tamanho fixo do campo, se o tamanho for variavel, deve receber o valor T\+A\+M\+\_\+\+V\+A\+R\+I\+A\+V\+EL. \mbox{\Hypertarget{structRegistrosConfig_1_1CampoConfig_a29391203bb781cfe4d42f4d10656d9ec}\label{structRegistrosConfig_1_1CampoConfig_a29391203bb781cfe4d42f4d10656d9ec}} 
+\index{RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}!tipoDado@{tipoDado}}
+\index{tipoDado@{tipoDado}!RegistrosConfig::CampoConfig@{RegistrosConfig::CampoConfig}}
+\doxysubsubsection{\texorpdfstring{tipoDado}{tipoDado}}
+{\footnotesize\ttfamily \mbox{\hyperlink{arquivos_8h_a5fd66dd2f7ed65c0bffacc30f1ab842e}{Tipo\+Dado}} Registros\+Config\+::\+Campo\+Config\+::tipo\+Dado}
+
+Armazena qual tipo de dado deve ser utilizado para interpretar um campo. 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{arquivos_8h}{arquivos.\+h}}\end{DoxyCompactItemize}

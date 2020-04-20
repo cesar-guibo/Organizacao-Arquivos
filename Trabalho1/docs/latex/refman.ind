@@ -1,0 +1,24 @@
+\begin{theindex}
+
+  \item {camposConfig}
+    \subitem {RegistroConfig}, \hyperpage{4}
+
+  \indexspace
+
+  \item {numeroCampos}
+    \subitem {RegistroConfig}, \hyperpage{4}
+
+  \indexspace
+
+  \item {RegistroConfig}, \hyperpage{3}
+    \subitem {camposConfig}, \hyperpage{4}
+    \subitem {numeroCampos}, \hyperpage{4}
+    \subitem {tamanho}, \hyperpage{4}
+  \item {RegistroConfig::CampoConfig}, \hyperpage{3}
+
+  \indexspace
+
+  \item {tamanho}
+    \subitem {RegistroConfig}, \hyperpage{4}
+
+\end{theindex}
