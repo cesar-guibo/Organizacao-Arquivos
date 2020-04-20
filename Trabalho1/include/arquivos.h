@@ -1,5 +1,5 @@
-#ifndef _ORG_ARQUIVOS_
-#define _ORG_ARQUIVOS_
+#ifndef _ARQUIVOS_
+#define _ARQUIVOS_
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -177,4 +177,4 @@ void logErroOperacaoArquivo(StatusStream status);
 void logErroOperacaoArquivo(StatusStream status, FILE *errorStream);
 #endif
 
-#endif
+#endif /* _ARQUIVOS_ */
