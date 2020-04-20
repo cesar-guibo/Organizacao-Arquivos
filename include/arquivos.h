@@ -51,9 +51,6 @@ typedef enum {
  * restringir o acesso aos dados do Cabecalho. */
 struct Cabecalho;
 
-//te amo muitooooooooooooo vida
-
-
 /** @struct RegistrosConfig "include/arquivos.h" "include/arquivos.h"
  * Armazena como os registros devem ser armazenados e
  * interpretados em um arquivo. */
