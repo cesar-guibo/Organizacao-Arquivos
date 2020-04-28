@@ -47,7 +47,7 @@ typedef enum {
 /* Armazena os dados presentes no cabecalho
  * de um arquivo. Definicao encapsulada para 
  * restringir o acesso aos dados do Cabecalho. */
-struct Cabecalho;
+typedef struct Cabecalho Cabecalho;
 
 /* Armazena como os registros devem ser armazenados e
  * interpretados em um arquivo. */
@@ -109,27 +109,29 @@ struct RegistrosConfig {
 
 struct Cabecalho *cabecalhoAlloc(void);
 
-void cabecalhoFree(struct Cabecalho *cabecalho);
+void cabecalhoFree(Cabecalho *cabecalho);
 
 /* Carrega um cabecalho armazenado em um arquivo para poder utilizar as
  * informacoes nele armazenado em tempo de acesso da memoria RAM. */
-FileCode carregarCabecalho(struct Cabecalho *cabecalho, FILE *stream);
+FileCode carregarCabecalho(Cabecalho *cabecalho, FILE *stream);
 
 /* Formata um arquivo origem em um arquivo destino. Precisa receber 
  * como parametros as streams dos arquivos de destino e de origem e
  * as configuracoes dos reggistros contidos nos dois arquivos. */
-FileCode formatarArquivo(FILE *streamOrigem, FILE *streamDestino,
-			     struct RegistrosConfig *configOrigem,
-			     struct RegistrosConfig *configDestino);
+FileCode formatarArquivo(FILE *streamOrigem,
+			 FILE *streamDestino,
+			 Cabecalho *cabecalhoDestinho,
+			 struct RegistrosConfig *configOrigem,
+			 struct RegistrosConfig *configDestino);
 
 /* Imprime todos os dados armazenados em um arquivo. Precisa receber
  * como parametros a stream que se comunica com o arquivo, o cabecalho
  * do arquivo e a configuracao dos registros do arquivo. */
-FileCode imprimirTodosDadosArquivo(FILE *stream,
-				      struct Cabecalho *cabecalho,
-				      struct RegistrosConfig *regConfig);
+FileCode imprimirTodosDadosArquivo(FILE *arquivoStream, FILE *outStream,
+				   struct Cabecalho *cabecalho,
+				   struct RegistrosConfig *regConfig);
 
 /* Imprime uma mensagem de erro para a stream selecionada */
-void logErroOperacaoArquivo(FileCode status, FILE *errorStream);
+void logErroOperacaoArquivo(FileCode erro, FILE *errorStream);
 
 #endif /* _ARQUIVOS_ */
