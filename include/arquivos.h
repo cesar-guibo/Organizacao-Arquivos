@@ -2,136 +2,57 @@
 #define _ARQUIVOS_
 
 #include <stdio.h>
-#include <stdbool.h>
 
- /* Arquivo de cabecalho que define enums, structs e funcoes relevantes
- * para o desenvolvimento do trabalho 1 relaizado para a disciplina 
- * de Organizacao de Arquivos. */
+/* Constante que define o tamanho maximo do cabecalho dos arquviso do tipo
+ * arquivoRN */
+#define TAM_CABECALHO_ARQ_STD 128
 
- /* Constante que sinaliza que o dado deve
- * ser tratado como lixo. */
-const char LIXO = '$';
+#define TAM_LIXO_CABECALHO_ARQ_STD 111
 
- /* Constante que define o tamanho fixo
- * dos cabecalhos. */
-const int CABECALHO_TAM = 128;
+#define ARQ_STD_REG_REMOVIDO -1
 
- /* Constante que sinaliza que um campo ou
- * um registro possui tamanho variavel. */
-const int TAM_VARIAVEL = -1;
-
- /* Constante que define o comprimento
- * maximo das tags. */
-const int TAG_TAM = 15;
-
- /* Constante que define o caractere que  
- * determina que nenhum delimitador e 
- * utilizado. */
-const char NENHUM_DELIMITADOR = '!';
-
- /* Representa se ocorreu algum erro em operacoes que envolvem
-  * streams. */
+/* Constante que sinaliza que o dado deve ser tratado como lixo. */
+#define LIXO_STD '$'
+ 
+/* Representa se ocorreu algum erro em operacoes que envolvem aruqivos
+ * manipulados por essa interface. */
 typedef enum {
-	STREAM_OK, ERRO_LEITURA, ERRO_ESCRITA, EOF_ALCANCADO, STREAM_NULA
-} FileCode;
+	ARQUIVOS_SEM_ERRO,
+	ARQUIVOS_ARQ_CORROMPIDO,
+	ARQUIVOS_ERRO_LEITURA,
+	ARQUIVOS_ERRO_ESCRITA, 
+	ARQUIVOS_ERRO_SEEKING,
+	ARQUIVOS_ERRO_ABERTURA,
+	ARQUIVOS_ERRO_FECHAMENTO,
+	ARQUIVOS_FALTA_DE_MEMORIA,
+	ARQUIVOS_EOF,
+	ARQUIVOS_REGISTRO_CORROMPIDO,
+} ErroArquivos;
 
- /* Representa os tipos de dados que um campo pode conter para 
- * que possa ser utilizado pelas funcoes definidas nesse .h. */
-typedef enum {
-	INT, LONG, LONG_LONG, SHORT, UNSIGNED, UNSIGNED_LONG,
-	UNSIGNED_LONG_LONG, UNSIGNED_SHORT, CHAR, UNSIGNED_CHAR,
-	SIGNED_CHAR, FLOAT, DOUBLE, LONG_DOUBLE
-} TipoDado;
+/* Arquivo .bin que segue as especificacoes padroes do projeto */
+typedef struct arquivoStd ArquivoStd;
 
+/* Arquivo .csv */
+typedef struct arquivoCsv ArquivoCsv;
 
-/* Armazena os dados presentes no cabecalho
- * de um arquivo. Definicao encapsulada para 
- * restringir o acesso aos dados do Cabecalho. */
-typedef struct Cabecalho Cabecalho;
+ErroArquivos arquivosStd_criarArquivo(ArquivoStd **arq, char *nomeArq);
 
-/* Armazena como os registros devem ser armazenados e
- * interpretados em um arquivo. */
-struct RegistrosConfig {
-	/* Tamanho fixo do registro, se o
-	 * tamanho for variavel, deve receber
-	 * o valor TAM_VARIAVEL. */
-	int tamanhoFixo;
+ErroArquivos arquivosStd_abrirArquivo(ArquivoStd **arq, char *nomeArq);
 
-	/* Armazena as configuracoes de como cada campo
-	 * deve ser armazenado e interpretado. */
-	struct CampoConfig {
-		/* Armazena qual tipo de dado
-		 * deve ser utilizado para
-		 * interpretar um campo. */
-		TipoDado tipoDado;
+ErroArquivos arquivosStd_fecharArquivo(ArquivoStd **arq);
 
-		/* Armazena a tag que identifica
-		 * o campo. */
-		char tag[TAG_TAM]; 
+ErroArquivos arquivosStd_inserirReg(ArquivoStd *arq, char *reg);
 
-	 	/* Tamanho fixo do campo, se o
-	 	 * tamanho for variavel, deve receber
-	 	 * o valor TAM_VARIAVEL. */
-		int tamanhoFixo;	
+/* Imprime todos os registros armazenados em um ArquivoStd para
+ * a stream outStream. */
+ErroArquivos arquivoStd_imprimirTodosRegs(ArquivoStd *arq, FILE *outStream);
 
-		/* Sinaliza se e utilizado um 
-		 * delimitador de tamanho que 
-		 * sempre precede o dado para 
-		 * informar o tamanho de um 
-		 * campo variavel. */
-		bool delimitadorTamanho;
+ErroArquivos arquivosCsv_abrirArquivo(ArquivoCsv **arq, char *nomeArq);
 
-		/* Armazena que caractere e usado
-		 * para sinalizar o fim de um 
-		 * campo de tamanho variavel. Se 
-		 * nao e utilizado um delimitador,
-		 * deve receber NENHUM_DELIMITADOR. */
-		char delimitadorCampo;
-	};
+ErroArquivos arquivosCsv_fecharArquivo(ArquivoCsv **arq);
 
-	/* Vetor de configuracoes de campos.*/
-#ifdef NUMERO_CAMPOS 
-	/* Se NUMERO_CAMPOS tiver sido definido,
- 	* o vetor camposConfig e alocado estaticamente */
-	struct CampoConfig camposConfig[NUMERO_CAMPOS];
-#else
-	/* Se NUMERO_CAMPOS nao foi definido, 
-	 * o vetor camposConfig deve ser alocado
-	 * dinamicamente*/
-	struct CampoConfig *camposConfig;
+ErroArquivos arquivosCsv_formatarArquivoParaStd(ArquivoStd *arqRn, 
+						ArquivoCsv *arqCSV);
 
-	/* Se NUMERO_CAMPOS nao foi definido,
-	 * Armazena o numero de campos
-	 * contido no registro. */
-	int numeroCampos;
 #endif
-};
 
-struct Cabecalho *cabecalhoAlloc(void);
-
-void cabecalhoFree(Cabecalho *cabecalho);
-
-/* Carrega um cabecalho armazenado em um arquivo para poder utilizar as
- * informacoes nele armazenado em tempo de acesso da memoria RAM. */
-FileCode carregarCabecalho(Cabecalho *cabecalho, FILE *stream);
-
-/* Formata um arquivo origem em um arquivo destino. Precisa receber 
- * como parametros as streams dos arquivos de destino e de origem e
- * as configuracoes dos reggistros contidos nos dois arquivos. */
-FileCode formatarArquivo(FILE *streamOrigem,
-			 FILE *streamDestino,
-			 Cabecalho *cabecalhoDestinho,
-			 struct RegistrosConfig *configOrigem,
-			 struct RegistrosConfig *configDestino);
-
-/* Imprime todos os dados armazenados em um arquivo. Precisa receber
- * como parametros a stream que se comunica com o arquivo, o cabecalho
- * do arquivo e a configuracao dos registros do arquivo. */
-FileCode imprimirTodosDadosArquivo(FILE *arquivoStream, FILE *outStream,
-				   struct Cabecalho *cabecalho,
-				   struct RegistrosConfig *regConfig);
-
-/* Imprime uma mensagem de erro para a stream selecionada */
-void logErroOperacaoArquivo(FileCode erro, FILE *errorStream);
-
-#endif /* _ARQUIVOS_ */
