@@ -1,10 +1,10 @@
-#include "../include/auxiliar_lib.h"
+#include "../include/utils.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
 
-char *aux_strtok(char *str, char *delimiters)
+char *utils_strtok(char *str, char *delimiters)
 {
 	static char *fim; /* Onde termina a string ret */
 	static char *ret; /* Ultimo return */
@@ -30,7 +30,7 @@ char *aux_strtok(char *str, char *delimiters)
 	}
 }
 
-void aux_strToUpper(char *destino, char *origem){
+void utils_strToUpper(char *destino, char *origem){
     int tam = strlen(origem);
     for(int i = 0; i < tam; i++){
         destino[i] = toupper(origem[i]);
@@ -40,7 +40,7 @@ void aux_strToUpper(char *destino, char *origem){
     return;
 }
 
-void aux_binarioNaTela(char *nomeArquivoBinario) {
+void utils_binarioNaTela(char *nomeArquivoBinario) {
 
 	/* Use essa função para comparação no run.codes. Lembre-se de ter
 	 * fechado (fclose) o arquivo anteriormente. Ela vai abrir de novo
@@ -77,7 +77,7 @@ void aux_binarioNaTela(char *nomeArquivoBinario) {
 
 
 
-void aux_trim(char *str) {
+void utils_trim(char *str) {
 
 	/*
 	*	Essa função arruma uma string de entrada "str".
@@ -108,7 +108,7 @@ void aux_trim(char *str) {
 
 
 
-void aux_scan_quote_string(char *str) {
+void utils_scan_quote_string(char *str) {
 
 	/*
 	*	Use essa função para ler um campo string delimitado

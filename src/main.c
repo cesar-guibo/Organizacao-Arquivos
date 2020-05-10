@@ -1,6 +1,6 @@
 #include "../include/regsNascimento.h"
 #include "../include/arquivos.h"
-#include "../include/auxiliar_lib.h"
+#include "../include/utils.h"
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -43,7 +43,7 @@ int operacao1(void)
 		return FALHA;
 	}
 
-	aux_binarioNaTela(inputBuffer);
+	utils_binarioNaTela(inputBuffer);
 
 	return SUCESSO;
 }

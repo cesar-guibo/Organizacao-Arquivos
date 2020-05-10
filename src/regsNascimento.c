@@ -1,11 +1,21 @@
 #include "../include/regsNascimento.h"
 #include "../include/arquivos.h"
-#include "../include/auxiliar_lib.h"
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
-ErroRn regsNascimento_setCampo(struct regNascimento *rn, char *valor, 
+/* Constante que define um inteiro que sinaliza que um campo esta vazio. */
+#define INT_VAZIO -1
+
+const unsigned TAM_CAMPOS_TAM_FIXO[NUM_CMAPOS_TAM_FIXO] = {
+	sizeof(int),
+	sizeof(int),
+	TAM_DATA,
+	TAM_SEXO,
+	TAM_ESTADO,
+	TAM_ESTADO
+};
+
+void regsNascimento_setCampo(struct regNascimento *rn, char *valor, 
 			      RegNascimentoCampos campo)
 {
 	switch(campo) {
@@ -51,10 +61,10 @@ ErroRn regsNascimento_setCampo(struct regNascimento *rn, char *valor,
 			}
 			break;
 	}
-	return RN_SEM_ERRO;
+	return;
 }
 
-ErroRn regsNascimento_formatarParaRegArquivoStd(char *destino, 
+void regsNascimento_formatarParaRegArquivoStd(char *destino, 
 						struct regNascimento *rn)
 {
 	char *auxPtrDest;
@@ -76,7 +86,7 @@ ErroRn regsNascimento_formatarParaRegArquivoStd(char *destino,
 	memcpy(auxPtrDest, rn->cidadeBebe, tamCidadeBebe);
 	auxPtrDest += tamCidadeBebe;
 
-	quantidadeLixo = TAM_CAMPOS_VAR - (tamCidadeMae + tamCidadeBebe);
+	quantidadeLixo = TAM_MAX_CAMPOS_VAR - (tamCidadeMae + tamCidadeBebe);
 	memset(auxPtrDest, LIXO_STD, quantidadeLixo);
 	auxPtrDest += quantidadeLixo;	
 
@@ -97,7 +107,7 @@ ErroRn regsNascimento_formatarParaRegArquivoStd(char *destino,
 
 	memcpy(auxPtrDest, rn->estadoBebe, TAM_ESTADO);
 
-	return RN_SEM_ERRO;
+	return;
 }
 
 void regsNascimento_imprimir(struct regNascimento *rn, FILE *outStream) 
@@ -106,16 +116,10 @@ void regsNascimento_imprimir(struct regNascimento *rn, FILE *outStream)
 	char *sexo;
 	char *estado;
 	char *data;
-	int auxTam;
 
-	auxTam = strlen(rn->cidadeBebe);
-	if (auxTam != 0) {
-		cidade = malloc(sizeof(char) * (auxTam + 1));
-		strcpy(cidade, rn->cidadeBebe);
-	} else {
-		cidade = malloc(2 * sizeof(char));
-		strcpy(cidade, "-");
-	}
+	cidade = (strlen(rn->cidadeBebe) != 0) ? rn->cidadeBebe : "-";
+	estado = (strlen(rn->estadoBebe) != 0) ? rn->estadoBebe : "-";
+	data = (strlen(rn->dataNascimento) != 0) ? rn->dataNascimento : "-";
 
 	if (rn->sexoBebe == '0') {
 		sexo = "IGNORADO";
@@ -125,30 +129,8 @@ void regsNascimento_imprimir(struct regNascimento *rn, FILE *outStream)
 		sexo = "FEMININO";
 	} 
 
-	auxTam = strlen(rn->estadoBebe);
-	if (auxTam != 0) {
-		estado = malloc(sizeof(char) * (auxTam + 1));
-		strcpy(estado, rn->estadoBebe);
-	} else {
-		estado = malloc(2 * sizeof(char));
-		strcpy(estado, "-");
-	}
-	
-	auxTam = strlen(rn->dataNascimento);
-	if (auxTam != 0) {
-		data = malloc(sizeof(char) * (auxTam + 1));
-		strcpy(data, rn->dataNascimento);
-	} else {
-		data = malloc(2 * sizeof(char));
-		strcpy(data, "-");
-	} 
-
 	printf("Nasceu em %s/%s, em %s, um bebê de sexo %s.\n",
 		cidade, estado, data, sexo);
-
-	free(cidade);
-	free(estado);
-	free(data);
 
 	return;
 }

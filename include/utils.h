@@ -2,9 +2,9 @@
 #define _AUX_
 
 /* strtok() que e capaz de processar campos nulos */
-char *aux_strtok(char *str, char *delimiters);
+char *utils_strtok(char *str, char *delimiters);
 
-void aux_strToUpper(char *destino, char *origem);
+void utils_strToUpper(char *destino, char *origem);
 
 /*
 * Abaixo seguem funções que fazem a escrita do binário em "stdout" (tela) pra
@@ -28,10 +28,10 @@ void aux_strToUpper(char *destino, char *origem);
 * Tá tudo testado e funcionando, mas qualquer dúvida acerca dessas funções,
 * falar com o monitor Matheus (mcarvalhor@usp.br). */
 
-void aux_binarioNaTela(char *nomeArquivoBinario);                           
+void utils_binarioNaTela(char *nomeArquivoBinario);                           
 
-void aux_trim(char *str);                                                   
+void utils_trim(char *str);                                                   
 
-void aux_scan_quote_string(char *str); 
+void utils_scan_quote_string(char *str); 
 
 #endif

@@ -3,15 +3,7 @@
 
 #include <stdio.h>
 
-/* Constante que define o tamanho maximo do cabecalho dos arquviso do tipo
- * arquivoRN */
-#define TAM_CABECALHO_ARQ_STD 128
-
-#define TAM_LIXO_CABECALHO_ARQ_STD 111
-
-#define ARQ_STD_REG_REMOVIDO -1
-
-/* Constante que sinaliza que o dado deve ser tratado como lixo. */
+/* Constante que define um caractere que indica que um byte e lixo. */
 #define LIXO_STD '$'
  
 /* Representa se ocorreu algum erro em operacoes que envolvem aruqivos
@@ -29,30 +21,63 @@ typedef enum {
 	ARQUIVOS_REGISTRO_CORROMPIDO,
 } ErroArquivos;
 
-/* Arquivo .bin que segue as especificacoes padroes do projeto */
+/* Arquivo .bin padrado que segue as especificacoes do projeto */
 typedef struct arquivoStd ArquivoStd;
 
 /* Arquivo .csv */
 typedef struct arquivoCsv ArquivoCsv;
 
+/* Funcao que cria um arquivo com as formatacoes std.
+ * Recebe um ponteiro para struct aquivoStd por referencia e uma string
+ * com o nome do arquivo que deve ser cirado.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosStd_criarArquivo(ArquivoStd **arq, char *nomeArq);
 
+/* Funcao que abre um arquivo com as formatacoes std.
+ * Recebe um ponteiro para struct aquivoStd por referencia e uma string
+ * com o nome do arquivo que deve ser aberto.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosStd_abrirArquivo(ArquivoStd **arq, char *nomeArq);
 
+/* Funcao que fecha um ArquivoStd.
+ * Recebe um ponteiro para struct arquvioStd por referencia.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosStd_fecharArquivo(ArquivoStd **arq);
 
+/* Funcao que insere um registro em um ArquivoStd.
+ * Recebe um ponteiro para o ArquivoStd que recebera a insercao e a string
+ * com o registro formatado para arquivos std por parametro.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosStd_inserirReg(ArquivoStd *arq, char *reg);
 
-/* Imprime todos os registros armazenados em um ArquivoStd para
- * a stream outStream. */
-ErroArquivos arquivoStd_imprimirTodosRegs(ArquivoStd *arq, FILE *outStream);
+/* Funcao que imprime todos os registros de um ArquivoStd.
+ * Recebe o arquivo que deve ser impresso e a stream na qual a impressao deve
+ * ocorrer.
+ * Retorna um codigo de erro */
+ErroArquivos arquivosStd_imprimirTodosRegs(ArquivoStd *arq, FILE *outStream);
 
+/* Funcao que abre um arquivo .csv.
+ * Recebe um ponteiro que aponta para um ArquivoCsv por referencia e uma
+ * string com o nome do arquivo que deve ser aberto.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosCsv_abrirArquivo(ArquivoCsv **arq, char *nomeArq);
 
+/* Funcao que fecha um arquivo .csv.
+ * Recebe como parametro um ponteiro que aponta para um ArquivoCsv por
+ * referencia.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosCsv_fecharArquivo(ArquivoCsv **arq);
 
+/* Funcao que formata um arquivo .csv para um .bin padrao para esse projeto. 
+ * Recebe um ponteiro para um ArquivoStd novo ja criado e um um ponteiro
+ * para um ArquivoCsv ja aberto.
+ * Retorna um codigo de erro */
 ErroArquivos arquivosCsv_formatarArquivoParaStd(ArquivoStd *arqRn, 
 						ArquivoCsv *arqCSV);
 
-#endif
+/* Funcao que registra erros das funcoes desse .h na stream erroStream.
+ * Recebe um ErroArquivos e uma stream para registrar os erros. */
+void arquivos_logErros(ErroArquivos erro, FILE *erroStream);
+
+#endif /* _ARQUIVOS_ */
 

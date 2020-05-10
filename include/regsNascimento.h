@@ -3,24 +3,33 @@
 
 #include <stdio.h>
 
-/* Constante que define o numero de campos em um registro de em arquivoRN. */
-#define NUM_CAMPOS_REG 8
-
-/* Constante que define o tamanho maximo dos registros de um arquivoRN. */
-#define TAM_REGS 128
-
-#define INT_VAZIO -1
-
-#define REG_RMD -1
-
+/* Constante que define o tamanho dos campos que representam sexo. */
 #define TAM_SEXO 1
 
+/* Constante que define o tamanho das strings que representam uma
+ * data. */
 #define TAM_DATA 10
 
+/* Constante que define o tamanho das strings que representam um 
+ * estado. */
 #define TAM_ESTADO 2
 
-#define TAM_CAMPOS_VAR 97
+/* Constante que define o tamanho de um registro separado para campos 
+ * de tamanho variavel. */
+#define TAM_MAX_CAMPOS_VAR 97
 
+/* Constante que define o numero de campos de tamanho variavel. */
+#define NUM_CMAPOS_TAM_VAR 2
+
+/* Constante que define o numero de campos de tamanho fixo. */
+#define NUM_CMAPOS_TAM_FIXO 6
+
+/* Array de constantes que armazena os tamanhos dos campos de tamanho fixo 
+ * em ordem para facilitar operacoes com esses dados. */
+extern const unsigned TAM_CAMPOS_TAM_FIXO[NUM_CMAPOS_TAM_FIXO];
+
+/* Enum com cada campo de uma struct regNascimento. E utilizado para facilitar
+ * operacoes com esssa struct. */
 typedef enum {
 	CIDADE_MAE = 0,
 	CIDADE_BEBE = 1,
@@ -32,15 +41,9 @@ typedef enum {
 	ESTADO_BEBE = 7
 } RegNascimentoCampos;
 
- /* Representa se ocorreu algum erro em operacoes que envolvem
-  * registros de nascimento. */
-typedef enum {
-	RN_SEM_ERRO, RN_FALTA_DE_MEMORIA
-} ErroRn;
-
 struct regNascimento {
-	char cidadeMae[TAM_CAMPOS_VAR + 1];
-	char cidadeBebe[TAM_CAMPOS_VAR + 1];
+	char cidadeMae[TAM_MAX_CAMPOS_VAR + 1];
+	char cidadeBebe[TAM_MAX_CAMPOS_VAR + 1];
 	int idNascimento;
 	int idadeMae;
 	char dataNascimento[TAM_DATA + 1];
@@ -49,15 +52,23 @@ struct regNascimento {
 	char estadoBebe[TAM_ESTADO + 1];
 };
 
-ErroRn regsNascimento_setCampo(struct regNascimento *rn, char *valor,
+/* Funcao para passar as informacoes do valor que vem em forma de string
+ * string para o campo selecionado da struct registro de nascimento.
+ * Recebe a struct regNascimento em que o valor deve ser armazenado,
+ * a string com o valor e o campo a ser escrito. */
+void regsNascimento_setCampo(struct regNascimento *rn, char *valor,
 			       RegNascimentoCampos campo);
 
-ErroRn regsNascimento_formatarParaRegArquivoStd(char dest[TAM_REGS],
+/* Formata os dados de uma struct regNascimento para um registro de
+ * um ArquivoStd.
+ * Recebe um buffer de desino que deve possuir no minimo TAM_REGISTROS bytes,
+ * o qual recebera a struct formatada e a struct regNascimento que deve ser 
+ * formatada. */
+void regsNascimento_formatarParaRegArquivoStd(char *dest,
 						struct regNascimento *rn);
 
+/* Funcao que imprime um registro.
+ * Recebe o regNascimento a ser impresso e a stream em que se imprime. */
 void regsNascimento_imprimir(struct regNascimento *rn, FILE *outStream);
-
-/* Imprime uma mensagem de erro para a stream selecionada */
-void regsNascimento_logErroOperacao(ErroRn erro, FILE *errorStream);
 
 #endif /* _REGS_NASCIMENTO_ */
