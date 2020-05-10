@@ -17,8 +17,7 @@ typedef enum {
 	ARQUIVOS_ERRO_ABERTURA,
 	ARQUIVOS_ERRO_FECHAMENTO,
 	ARQUIVOS_FALTA_DE_MEMORIA,
-	ARQUIVOS_EOF,
-	ARQUIVOS_REGISTRO_CORROMPIDO,
+	ARQUIVOS_REGISTRO_CORROMPIDO
 } ErroArquivos;
 
 /* Arquivo .bin padrado que segue as especificacoes do projeto */
@@ -77,7 +76,7 @@ ErroArquivos arquivosCsv_formatarArquivoParaStd(ArquivoStd *arqRn,
 
 /* Funcao que registra erros das funcoes desse .h na stream erroStream.
  * Recebe um ErroArquivos e uma stream para registrar os erros. */
-void arquivos_logErros(ErroArquivos erro, FILE *erroStream);
+void arquivosErros_logErros(ErroArquivos erro, FILE *erroStream);
 
 #endif /* _ARQUIVOS_ */
 

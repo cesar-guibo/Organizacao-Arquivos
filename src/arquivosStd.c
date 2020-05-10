@@ -252,10 +252,7 @@ static ErroArquivos lerRegistro(char *destino, struct arquivoStd *arq,
 
 	if (fread(destino, sizeof(char), TAM_REGISTROS, arq->stream)
 	    != TAM_REGISTROS) {
-		if (ferror(arq->stream)) {
-			return ARQUIVOS_ERRO_LEITURA;
-		}
-		return ARQUIVOS_EOF;
+		return ARQUIVOS_ERRO_LEITURA;
 	}
 
 	return ARQUIVOS_SEM_ERRO;
@@ -343,7 +340,7 @@ ErroArquivos arquivosStd_imprimirTodosRegs(ArquivoStd *arq, FILE *outStream)
 		erro = lerRegistro(buffer, arq, RRN_ATUAL);
 	}			
 
-	if (erro != ARQUIVOS_EOF) {
+	if (!ferror(arq->stream)) {
 		return erro;
 	}
 
