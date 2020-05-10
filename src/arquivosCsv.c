@@ -62,7 +62,7 @@ ErroArquivos arquivosCsv_fecharArquivo(ArquivoCsv **arq)
  * Recebe uma struct regNascimento, uma registro do .csv em regCsv o tamanho
  * do regCsv.
  * Retorna o tipo de erro */
-static ErroArquivos parseRegistro(struct regNascimento *rn, char *regCsv,
+static ErroArquivos parseRegistroArquivo(struct regNascimento *rn, char *regCsv,
 				  int tamReg) 
 {
 	char *auxPtr;
@@ -97,7 +97,7 @@ ErroArquivos arquivosCsv_formatarArquivoParaStd(struct arquivoStd *arqStd,
 
 	while (fgets(buff, TAM_BUFFERS, arqCsv->stream) != NULL) {
 		memset(&rn, 0, sizeof(struct regNascimento));
-		erro = parseRegistro(&rn, buff, TAM_BUFFERS);
+		erro = parseRegistroArquivo(&rn, buff, TAM_BUFFERS);
 		if (erro != ARQUIVOS_SEM_ERRO) {
 			return erro;
 		}

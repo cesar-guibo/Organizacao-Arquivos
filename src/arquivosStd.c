@@ -37,8 +37,9 @@ struct arquivoStd {
 	struct cabecalho cabecalho;
 };
 
-/* Funcao que escreve o cabecalho no arquivo
- * Recebe uma stream e o cabecalho a ser inserido, retorna um codigo de erro*/
+/* Funcao que escreve o cabecalho no arquivo.
+ * Recebe a stream de um arquivo e o cabecalho a ser inserido.
+ * Retorna um codigo de erro */
 static ErroArquivos inserirCabecalho(FILE *arq, struct cabecalho *c)
 {
 	if (fseek(arq, 0, SEEK_SET) != 0) {
@@ -118,7 +119,7 @@ ErroArquivos arquivosStd_criarArquivo(struct arquivoStd **arq, char *nomeArq)
 /* Funcao que le o cabecalho de um arquivo e o carrega na struct cabecalho.
  * Recebe como parametro a stream do arquivo e a struct cabecalho a ser
  * carregada.
- * Retorna o tipo de erro */
+ * Retorna um codigo de erro */
 static ErroArquivos carregarCabecalho(FILE *arq, struct cabecalho *c)
 {
 	char emUso = '0';
@@ -147,7 +148,7 @@ static ErroArquivos carregarCabecalho(FILE *arq, struct cabecalho *c)
 		return ARQUIVOS_ERRO_LEITURA;
 	}
 	
-	/* Assegura que sempre que o cabecalho for carregado,
+	/* Assegura que sempre que o cabecalho terminar de ser carregado,
 	 * o arquivo tenha como status no cabecalho '0' */
 	if (fseek(arq, 0, SEEK_SET) != 0) {
 		return ARQUIVOS_ERRO_SEEKING;
@@ -274,7 +275,7 @@ static ErroArquivos parseRegistroArquivo(struct regNascimento *rn,
 {
 	int tamCamposTamVar[NUM_CMAPOS_TAM_VAR];
 	char auxBuffer[TAM_MAX_CAMPOS_VAR];
-	char *fimRegArq; /* Ponteiro que aponta para o final do reg*/
+	char *fimRegArq; /* Ponteiro que aponta para o final do registroArq */
 
 	fimRegArq = registroArq + TAM_REGISTROS;
 
@@ -340,7 +341,7 @@ ErroArquivos arquivosStd_imprimirTodosRegs(ArquivoStd *arq, FILE *outStream)
 		erro = lerRegistro(buffer, arq, RRN_ATUAL);
 	}			
 
-	if (!ferror(arq->stream)) {
+	if (ferror(arq->stream)) {
 		return erro;
 	}
 

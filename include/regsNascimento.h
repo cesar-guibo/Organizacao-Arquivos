@@ -3,6 +3,9 @@
 
 #include <stdio.h>
 
+/* As funcoes desse .h tem como proposito auxiliar operacoes que precisam
+ * manipular regsNascimento. */
+
 /* Constante que define o tamanho dos campos que representam sexo. */
 #define TAM_SEXO 1
 
@@ -54,21 +57,30 @@ struct regNascimento {
 
 /* Funcao para passar as informacoes do valor que vem em forma de string
  * string para o campo selecionado da struct registro de nascimento.
+ *
  * Recebe a struct regNascimento em que o valor deve ser armazenado,
- * a string com o valor e o campo a ser escrito. */
+ * a string com o valor e o campo a ser escrito.
+ *
+ * Nao retorna nada.*/
 void regsNascimento_setCampo(struct regNascimento *rn, char *valor,
 			       RegNascimentoCampos campo);
 
 /* Formata os dados de uma struct regNascimento para um registro de
  * um ArquivoStd.
+ *
  * Recebe um buffer de desino que deve possuir no minimo TAM_REGISTROS bytes,
  * o qual recebera a struct formatada e a struct regNascimento que deve ser 
- * formatada. */
+ * formatada. 
+ *
+ * Nao retorna nada */
 void regsNascimento_formatarParaRegArquivoStd(char *dest,
 						struct regNascimento *rn);
 
 /* Funcao que imprime um registro.
- * Recebe o regNascimento a ser impresso e a stream em que se imprime. */
+ *
+ * Recebe o regNascimento a ser impresso e a stream em que se imprime.
+ *
+ * Nao retorna nada */
 void regsNascimento_imprimir(struct regNascimento *rn, FILE *outStream);
 
 #endif /* _REGS_NASCIMENTO_ */

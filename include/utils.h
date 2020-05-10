@@ -1,5 +1,5 @@
-#ifndef _AUX_
-#define _AUX_
+#ifndef __UTILS__
+#define __UTILS__
 
 /* strtok() que e capaz de processar campos nulos */
 char *utils_strtok(char *str, char *delimiters);
@@ -34,4 +34,4 @@ void utils_trim(char *str);
 
 void utils_scan_quote_string(char *str); 
 
-#endif
+#endif /* __UTILS__ */
