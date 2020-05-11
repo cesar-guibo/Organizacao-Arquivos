@@ -22,7 +22,7 @@ all: $(ALL_DEPENDENCIES)
 
 zip:
 	rm -rf programaTrab bin *.bin *.zip
-	zip -r Trabalho1.zip include/ src/ Makefile
+	zip -r Trabalho1.zip include/ src/ Makefile README.md
 
 pull:
 	git pull origin master
