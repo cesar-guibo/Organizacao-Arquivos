@@ -6,27 +6,27 @@
 
 char *utils_strtok(char *str, char *delimiters)
 {
-	static char *fim; /* Onde termina a string ret */
-	static char *ret; /* Ultimo return */
-	int tamDelimiters;
-	int tamStr;
+	static char *fim; /* Onde termina a string dividida em tokens */
+	static char *ret; /* Ultimo token retornado */
 
 	if (str != NULL) {
-		tamStr = strlen(str);
-		tamDelimiters = strlen(delimiters);
-		for (int i = 0; i < tamStr; i++) {
-			for (int j = 0; j < tamDelimiters; j++) {
+		fim = str + strlen(str) - 1;
+
+		for (int i = 0; str[i]; i++) {
+			for (int j = 0; delimiters[j]; j++) {
 				if (str[i] == delimiters[j]) {
 					str[i] = '\0';
 				}
 			}
 		}
-
 		ret = str;
-		fim = str + tamStr - 1; return ret;
-	} else {
+
+		return ret;
+	} else if (ret != NULL) {
 		ret = ((ret <= fim ) ? ret + strlen(ret) + 1 : NULL);
 		return ret;
+	} else {
+		return NULL;
 	}
 }
 

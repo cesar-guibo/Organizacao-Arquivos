@@ -1,14 +1,12 @@
 #include "../include/arquivos.h" 
 #include "../include/regsNascimento.h" 
-#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include <stddef.h>
 
 /* Constante que sinaliza que o rrn selecionado e o em que o arquivo ja se
  * encontra atualmente. */
-#define RRN_ATUAL INT_MAX
+#define RRN_ATUAL -1 /* Assume o maior valor possivel para unsigned int */
 
 /* Constante que sinaliza que um registro esta logicamente removido. */
 #define REGISTRO_REMOVIDO -1
@@ -19,10 +17,6 @@
 /* Constante que define o tamanho do lixo presente em um cabecalho de um
  * ArquivoStd. */
 #define TAM_LIXO_CABECALHO 111
-
-/* Constante que define o tamanho de um registro de um ArquivoStd. */
-#define TAM_REGISTROS 128
-
 
 struct cabecalho {
 	char status;
@@ -38,7 +32,9 @@ struct arquivoStd {
 };
 
 /* Funcao que escreve o cabecalho no arquivo.
+ *
  * Recebe a stream de um arquivo e o cabecalho a ser inserido.
+ *
  * Retorna um codigo de erro */
 static ErroArquivos inserirCabecalho(FILE *arq, struct cabecalho *c)
 {
@@ -65,6 +61,7 @@ static ErroArquivos inserirCabecalho(FILE *arq, struct cabecalho *c)
 }
 
 /* Funcao que inicializa um novo cabecalho.
+ *
  * Recebe uma struct cabecalho por parametro e nao tem retorno */
 static void novoCabecalhoInit(struct cabecalho *cabecalho)
 {
@@ -117,8 +114,10 @@ ErroArquivos arquivosStd_criarArquivo(struct arquivoStd **arq, char *nomeArq)
 }
 
 /* Funcao que le o cabecalho de um arquivo e o carrega na struct cabecalho.
+ *
  * Recebe como parametro a stream do arquivo e a struct cabecalho a ser
  * carregada.
+ *
  * Retorna um codigo de erro */
 static ErroArquivos carregarCabecalho(FILE *arq, struct cabecalho *c)
 {
@@ -201,8 +200,10 @@ ErroArquivos arquivosStd_fecharArquivo(struct arquivoStd **arq)
 
 /* Funcao que executa um seek para um determinado rrn em um arquivo padrao
  * do projeto. 
+ *
  * Recebe a struct arquivoStd do arquivo em que se deseja realizar o seek e o 
  * rrn para o qual relizar a operacao.
+ *
  * Retorna um codigo de erro */
 static ErroArquivos seekToRrn(struct arquivoStd *arq, unsigned rrn)
 {
@@ -260,6 +261,7 @@ static ErroArquivos lerRegistro(char *destino, struct arquivoStd *arq,
 }
 
 /* Funcao para verificar se o registro foi removido.
+ *
  * Recebe o registro por parametro e tem retorno booleano */
 static bool regFoiRemovido(char *reg)
 {
@@ -268,7 +270,9 @@ static bool regFoiRemovido(char *reg)
 
 /* Funcao que analisa um arquivo do arquivo padrao do projeto e armazena cada
  * uma das informacoes nele presentes em seu devido campo em rn.
- * Recebe uma struct regNascimento e um registro do arquivo padrao.
+ *
+ * Recebe uma struct regNascimento e um registro do ArquivoStd.
+ *
  * Retorna um codigo de erro */
 static ErroArquivos parseRegistroArquivo(struct regNascimento *rn,
 					 char *registroArq) 
@@ -289,8 +293,8 @@ static ErroArquivos parseRegistroArquivo(struct regNascimento *rn,
 	 * das strings e assim poder setar os campos da struct regNascimento
 	 * com a funcao regsNascimento_setCampo() */
 
-	registroArq += 2 * sizeof(int);
-	for (int i = 0; i < 2; i++) {	
+	registroArq += NUM_CMAPOS_TAM_VAR * sizeof(int);
+	for (int i = 0; i < NUM_CMAPOS_TAM_VAR; i++) {	
 		if (registroArq >= fimRegArq) {
 			return ARQUIVOS_REGISTRO_CORROMPIDO;
 		}

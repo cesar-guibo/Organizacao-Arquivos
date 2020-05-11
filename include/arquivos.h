@@ -11,8 +11,7 @@
  * tratado como lixo. */
 #define LIXO_STD '$'
  
-/* Representa se ocorreu algum erro em operacoes que envolvem aruqivos
- * manipulados por essa interface. */
+/* Representa se ocorreu algum erro em funcoes desse .h */
 typedef enum {
 	ARQUIVOS_SEM_ERRO,
 	ARQUIVOS_ARQ_CORROMPIDO,

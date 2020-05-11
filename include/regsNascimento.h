@@ -18,14 +18,20 @@
 #define TAM_ESTADO 2
 
 /* Constante que define o tamanho de um registro separado para campos 
- * de tamanho variavel. */
+ * de tamanho variavel nos registros de nascimento. */
 #define TAM_MAX_CAMPOS_VAR 97
 
-/* Constante que define o numero de campos de tamanho variavel. */
+/* Constante que define o numero de campos de tamanho variavel nos registros 
+ * de nascimento. */
 #define NUM_CMAPOS_TAM_VAR 2
 
-/* Constante que define o numero de campos de tamanho fixo. */
+/* Constante que define o numero de campos de tamanho fixo nos registros de 
+ * nascimento. */
 #define NUM_CMAPOS_TAM_FIXO 6
+
+/* Constante que define o numero maximo de bytes que podem ser ocupados com 
+ * dados em um registro de nascimento. */
+#define TAM_REGISTROS 128
 
 /* Array de constantes que armazena os tamanhos dos campos de tamanho fixo 
  * em ordem para facilitar operacoes com esses dados. */

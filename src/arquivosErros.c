@@ -37,8 +37,8 @@ void arquivosErros_logErros(ErroArquivos erro, FILE *erroStream)
 				       " memoria.";
 			break;
 		case ARQUIVOS_REGISTRO_CORROMPIDO:
-			mensagemErro = "Um registro foi encontrado em"
-				       " um arquivo.";
+			mensagemErro = "Um registro corrompido foi encontrado"
+				       " em um arquivo.";
 			break;
 	}
 	fprintf(erroStream, "%s\n", mensagemErro);

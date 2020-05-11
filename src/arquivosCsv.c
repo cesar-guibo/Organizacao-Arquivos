@@ -11,7 +11,7 @@ struct arquivoCsv {
 
 /* Constante que determian o tamanho em bytes dos buffers utilizados
  * nesse modulo. */
-#define TAM_BUFFERS 128
+#define TAM_BUFFERS 256
 
 ErroArquivos arquivosCsv_abrirArquivo(ArquivoCsv **arq, char *nomeArq)
 {
@@ -59,9 +59,11 @@ ErroArquivos arquivosCsv_fecharArquivo(ArquivoCsv **arq)
 
 /* Funcao que analisa um registro do arquivo .csv e armazena cada uma das 
  * informacoes nele presentes em seu devido campo em rn.
+ *
  * Recebe uma struct regNascimento, uma registro do .csv em regCsv o tamanho
  * do regCsv.
- * Retorna o tipo de erro */
+ *
+ * Retorna um codigo de erro */
 static ErroArquivos parseRegistroArquivo(struct regNascimento *rn, char *regCsv,
 				  int tamReg) 
 {

@@ -1,6 +1,6 @@
 GCC_FLAGS := -Wall
 
-ALL_DEPENDENCIES := ./bin/main.o ./bin/regsNascimento.o  ./bin/arquivosStd.o\
+ALL_DEPENDENCIES := ./bin/main.o ./bin/regsNascimento.o ./bin/arquivosStd.o\
 		    ./bin/arquivosCsv.o ./bin/utils.o ./bin/arquivosErros.o
 
 all: $(ALL_DEPENDENCIES)
@@ -22,7 +22,7 @@ all: $(ALL_DEPENDENCIES)
 
 zip:
 	rm -rf programaTrab bin *.bin *.zip
-	zip -r Trabalho1.zip *
+	zip -r Trabalho1.zip include/ src/ Makefile
 
 pull:
 	git pull origin master
